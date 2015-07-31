@@ -1,0 +1,77 @@
+{
+  "name": "puppet-module-hpinsight",
+  "version": "0.0.1",
+  "author": "kividiot",
+  "summary": "Manage packages and services for HP Insight hardware monitoring",
+  "license": "Apache-2.0",
+  "source": "git://github.com/kividiot/puppet-module-hpinsight.git",
+  "project_page": "https://github.com/kividiot/puppet-module-hpinsight",
+  "issues_url": "https://github.com/kividiot/puppet-module-hpinsight/issues",
+  "description": "Manage autofs",
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.1.0 < 5.0.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.1.0 < 5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "SLES"
+    },
+    {
+      "operatingsystem": "SLED"
+    },
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ]
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 < 6.0.0"}
+  ]
+}
