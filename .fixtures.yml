@@ -4,4 +4,4 @@ fixtures:
       repo: 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
       ref: '4.6.0'
   symlinks:
-    "autofs": "#{source_dir}"
+    "hpinsight": "#{source_dir}"

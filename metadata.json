@@ -7,7 +7,7 @@
   "source": "git://github.com/kividiot/puppet-module-hpinsight.git",
   "project_page": "https://github.com/kividiot/puppet-module-hpinsight",
   "issues_url": "https://github.com/kividiot/puppet-module-hpinsight/issues",
-  "description": "Manage autofs",
+  "description": "Manage hpinsight",
   "requirements": [
     {
       "name": "pe",

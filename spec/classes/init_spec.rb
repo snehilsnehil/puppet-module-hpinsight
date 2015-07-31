@@ -27,7 +27,8 @@ describe 'hpinsight' do
       context "where osfamily is <#{v[:osfamily]}>" do
         let :facts do
           {
-            :osfamily   => v[:osfamily],
+            :osfamily     => v[:osfamily],
+            :architecture => 'x86_64',
           }
         end
 
@@ -40,8 +41,7 @@ describe 'hpinsight' do
 
         it {
           should contain_service("#{v[:service_name]}").with({
-            'ensure'    => true,
-            'enable'    => true,
+            'ensure'    => 'present',
             'name'      => v[:service_name],
           })
         }
@@ -56,6 +56,7 @@ describe 'hpinsight' do
         let :facts do
           {
             :osfamily          => v[:osfamily],
+            :architecture      => 'x86_64',
           }
         end
 

@@ -1,20 +1,22 @@
-# ===   Class: hpinsight
+# == Class: hpinsight
+#
+# Manage HP Insight
+#
 class hpinsight(
   $ensure                  = 'present',
   $snmp_manage             = false,
-  $snmp_dlmod              = undef,
   $snmp_rocommunity        = undef,
   $snmp_rocommunity_allow  = undef,
   $snmp_trapcommunity      = undef,
   $snmp_trapsink_host      = undef,
   $snmp_trapsink_community = undef,
-
 ) {
 
 # Load default parameters according to OS
 
   case $::osfamily {
     'RedHat', 'Suse': {
+      $hpi_packages = 'hp-health'
       $snmp_package = 'net-snmp'
       $snmp_service = 'snmpd'
       $snmp_config  = '/etc/snmp/snmpd.conf'
@@ -28,6 +30,7 @@ class hpinsight(
       }
     }
     'Debian': {
+      $hpi_packages = 'hp-health'
       $snmp_package = 'snmpd'
       $snmp_service = 'snmpd'
       $snmp_config  = '/etc/snmp/snmpd.conf'
@@ -44,6 +47,23 @@ class hpinsight(
 
   validate_bool($snmp_manage)
 
+# HP Insight
+
+  package { $hpi_packages:
+    ensure  => $ensure,
+  }
+
+  service { 'hp-snmp-agents':
+    ensure  => $ensure,
+    status  => 'pgrep cmahealthd',
+    require => Package[$hpi_packages],
+  }
+
+  service { 'hp-health':
+    ensure  => $ensure,
+    status  => 'hpasmxld || pgrep hpasmlited',
+    require => Package[$hpi_packages],
+  }
 
 # Configure snmp
 
