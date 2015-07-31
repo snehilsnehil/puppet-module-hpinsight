@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'autofs' do
+describe 'hpinsight' do
   platforms = {
     'RedHat' =>
       {
