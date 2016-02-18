@@ -51,7 +51,7 @@ class hpinsight(
       owner   => 'root',
       group   => 'root',
       mode    => '0600',
-      source => 'puppet:///fiiles/snmpd.conf',
+      source => 'puppet:///files/snmpd.conf',
       require => Package[$snmp_package],
       notify  => Service[$snmp_service],
     }
