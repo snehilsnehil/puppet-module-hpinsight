@@ -2,7 +2,7 @@
 #
 # Manage HP Insight
 #
-class telnet(
+class hpinsight(
   $ensure 					= 'present',
   $service					= 'running',
   ) {
@@ -51,7 +51,7 @@ class telnet(
       owner   => 'root',
       group   => 'root',
       mode    => '0600',
-      source => 'puppet:///modules/telnet/snmpd.conf',
+      source => 'puppet:///fiiles/snmpd.conf',
       require => Package[$snmp_package],
       notify  => Service[$snmp_service],
     }
